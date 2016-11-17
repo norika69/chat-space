@@ -22,9 +22,9 @@ email      |string  |nil :false      |
 password   |string  |nil :false      |
 
 ##関連性
-*has_many :groups
+*has_many :user_groups
 *has_many :messages
-*has_many :groups, through :users_groups
+*has_many :groups, through :user_groups
 
 #messagesテーブル
 カラム    |型      |制約        |
@@ -45,10 +45,10 @@ group_name |string|not null|
 
 ##関連性
 *has_many :messages
-*has_many :users
-*has_many :users, through :users_groups
+*has_many :user_groups
+*has_many :users, through :user_groups
 
-#users_groupsテーブル
+#user_groupsテーブル
 カラム     |型         |制約                |
 :---------|:---------|:-------------------|
 user_id   |references|not null/foreign_key|
