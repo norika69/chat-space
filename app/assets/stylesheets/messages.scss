@@ -1,48 +1,221 @@
+.flash {
+  height: 29px;
+  width: 100%;
+  background-color: #38AEF0;
+  p {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 6px;
+    padding-top: 5px;
+  }
+}
 .chat {
-  width: 980px;
+  @include clearfix();
+  min-width: 980px;
   height: 100%;
-  .chat-left {
+  width: 100%;
+  // サイドバー
+  &__left {
     background-color: #2f3e51;
     width: 300px;
-    height: 575px;
+    height: 100vh;
     float: left;
-      .chat-user {
-        background-color: #253141;
-        height: 100px;
-        width: 300px;
-        h5 {
-          color: #FFFFFF;
-          font-size: 16px;
-          font-weight: bold;
-          display: inline-block;
-        }
+  // サイドバーのユーザー欄
+    &__user {
+      @include clearfix();
+      height: 100px;
+      width: 300px;
+      background-color: #253141;
+      padding: 20px;
+      position: fixed;
+      position: absolute;
+  // 名前表示
+      h5 {
+        padding-top: 10px;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: bold;
+        display: inline-block;
+      }
+  // アイコン
+      &__actions {
+        @include clearfix;
+        float: right;
         i {
+          padding-top: 20px;
           display: inline-block;
-          height: 20px;
-          width: 20px;
+          font-size: 20px;
           color: white;
         }
       }
-  //     a.chat-group__link {
-  //       p.chat-group__name{
-  //         color: #FFFFFF;
-  //         font-size: 15px;
-  //       }
-  //       p.chat-group__message {
-  //         color: #FFFFFF;
-  //         font-size: 11px;
-  //       }
-  //     }
-  // .chat-right
-  //   height: 100%;
-  //   width: 300px;
-  //   float: right;
-  //   .chat-header {
-  //     height: 101px;
-  //     width: 680px;
-  //   }
+    }
+    // グループとつぶやき表示
+    &__group {
+      display: block;
+      padding: 20px 20px;
+      position: relative;
+      top: 100px;
+      color: #FFFFFF;
+      &__name{
+        margin-bottom: 5px;
+        font-size: 15px;
+        display: inline-block;
+      }
+      &__message {
+        font-size: 11px;
+      }
+    }
+  }
+
+// チャットメイン画面
+  &__main {
+    @include clearfix();
+    width: calc(100% - 300px);
+    height: 100vh;
+    float: left;
+    position: relative;
+//ヘッダー
+    &__header {
+      @include clearfix();
+      height: 101px;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #eeeeee;
+      padding: 0 40px 0 40px;
+      // float: left;
+
+      //ヘッダーグループ名
+      h2 {
+        font-size: 20px;
+        color: #333333;
+        margin: 20px 0 0 0;
+        line-height: 50px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        display: inline-block;
+      }
+      p {
+        font-size: 12px;
+        color: #999999;
+        margin-bottom: 10px;
+        display: block;
+      }
+//editボタン
+      &__right {
+        display: inline-block;
+        width: 70px;
+        float: right;
+        .editbutton {
+          margin-top:28px;
+          border: 2px #38AEF0 solid;
+          background-color : white;
+          display: block;
+          text-align: center;
+          padding:0 20px 0;
+          height: 40px;
+          line-height: 35px;
+          color: #38AEF0;
+          font-size: 15px;
+        }
+      }
+    }
+//チャット本文
+    &__body {
+      width: 100%;
+      height: calc(100% - 190px);
+      background-color: #f9f9f9;
+      overflow-y: scroll;
+      // position: relative;
+      &__messages {
+        &__message {
+          padding: 40px 0 40px 40px;
+          list-style: none;
+          // margin-bottom: 40px;
+          // margin-top: 40px;
+          &__header {
+            @include clearfix();
+            margin-bottom: 10px;
+
+            &__name {
+              float: left;
+              font-size: 16px;
+              font-weight: bold;
+              color: 434A54;
+            }
+            &__date {
+              display: inline-block;
+              padding-left: 10px;
+              font-size: 12px;
+              color: #999999;
+              float: left;
+              line-height: 24px;
+            }
+          }
+          &__body {
+            font-size: 14px;
+            color: #434A54;
+          }
+
+        }
+      }
+    }
+    &__footer {
+      width: 100%;
+      bottom: 0px;
+      left: 0px;
+      height: 90px;
+      padding: 0 40px;
+      background-color: #ddd;
+
+      &__form {
+        @include clearfix();
+        max-width: 100%;
+        form {
+          margin: 20px 0 20px 0;
+          textarea { 
+            width: calc(100% - 116px);
+            height: 50px;
+            padding: 0 10px 0 10px;
+            font-size: 16px;
+            line-height: 45px;
+            border: none;
+            resize: none;
+          }
+        }
+        &__body {
+          @include clearfix();
+          float: left;
+          height: 50px;
+          width: calc(100% - 120px);
+          margin-right: 10px;
+          background-color: white;
+          position: relative;
+          display: inline-block;
+        }
+          lavel {
+            color: #434A54;
+            font-size: 16px;
+            display: inline-block;
+            i {
+              position: absolute;
+              right: 166px;
+              bottom: 35px;
+            }
+          }
+        input {
+          background-color: #38AEF0;
+          display: inline-block;
+          text-align: center;
+          line-height: 50px;
+          width: 100px;
+          color: white;
+          position: absolute;
+          right: 40px;
+          bottom: 20px;
+          border: none;
+          font-size: 18px;
+        }
+      }
+    }
   }
 }
-
-.clearfx{}
-
