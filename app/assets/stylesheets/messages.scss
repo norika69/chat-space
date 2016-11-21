@@ -1,7 +1,8 @@
+$color: #38AEF0;
 .flash {
   height: 29px;
   width: 100%;
-  background-color: #38AEF0;
+  background-color: $color;
   p {
     color: white;
     font-size: 15px;
@@ -17,50 +18,50 @@
   width: 100%;
   // サイドバー
   &__left {
-    background-color: #2f3e51;
-    width: 300px;
-    height: 100vh;
     float: left;
+    height: 100vh;
+    width: 300px;
+    background-color: #2f3e51;
   // サイドバーのユーザー欄
     &__user {
       @include clearfix();
+      position: fixed;
+      position: absolute;
       height: 100px;
       width: 300px;
       background-color: #253141;
       padding: 20px;
-      position: fixed;
-      position: absolute;
   // 名前表示
       h5 {
-        padding-top: 10px;
-        color: #FFFFFF;
+        display: inline-block;
+        color: #FFF;
         font-size: 16px;
         font-weight: bold;
-        display: inline-block;
+        padding-top: 10px;
       }
   // アイコン
       &__actions {
         @include clearfix;
         float: right;
         i {
-          padding-top: 20px;
           display: inline-block;
           font-size: 20px;
           color: white;
+          padding-top: 20px;
         }
       }
     }
     // グループとつぶやき表示
     &__group {
       display: block;
-      padding: 20px 20px;
       position: relative;
       top: 100px;
-      color: #FFFFFF;
+      color: #FFF;
+      padding: 20px 20px;
       &__name{
-        margin-bottom: 5px;
-        font-size: 15px;
         display: inline-block;
+        font-size: 15px;
+        margin-bottom: 5px;
       }
       &__message {
         font-size: 11px;
@@ -71,58 +72,56 @@
 // チャットメイン画面
   &__main {
     @include clearfix();
-    width: calc(100% - 300px);
-    height: 100vh;
     float: left;
     position: relative;
+    height: 100vh;
+    width: calc(100% - 300px);
 //ヘッダー
     &__header {
       @include clearfix();
       height: 101px;
-      background-color: #FFFFFF;
-      border-bottom: 1px solid #eeeeee;
-      padding: 0 40px 0 40px;
-      // float: left;
+      background-color: #FFF;
+      border-bottom: 1px solid #EEE;
+      padding: 0 40px;
 
       //ヘッダーグループ名
       h2 {
+        display: inline-block;
         font-size: 20px;
-        color: #333333;
-        margin: 20px 0 0 0;
+        color: #333;
         line-height: 50px;
         font-weight: 400;
         letter-spacing: 2px;
-        display: inline-block;
+        margin: 20px 0 -1px 0;
       }
       p {
-        font-size: 12px;
-        color: #999999;
-        margin-bottom: 10px;
         display: block;
+        font-size: 12px;
+        color: #999;
       }
 //editボタン
       &__right {
         display: inline-block;
-        width: 70px;
         float: right;
+        width: 70px;
         .editbutton {
-          margin-top:28px;
-          border: 2px #38AEF0 solid;
-          background-color : white;
           display: block;
-          text-align: center;
-          padding:0 20px 0;
           height: 40px;
+          border: 2px $color solid;
+          background-color: white;
+          text-align: center;
           line-height: 35px;
-          color: #38AEF0;
+          color: $color;
           font-size: 15px;
+          padding:0 20px;
+          margin-top:28px;
         }
       }
     }
 //チャット本文
     &__body {
-      width: 100%;
       height: calc(100% - 190px);
+      width: 100%;
       background-color: #f9f9f9;
       overflow-y: scroll;
       // position: relative;
@@ -140,15 +139,15 @@
               float: left;
               font-size: 16px;
               font-weight: bold;
-              color: 434A54;
+              color: #434A54;
             }
             &__date {
-              display: inline-block;
-              padding-left: 10px;
-              font-size: 12px;
-              color: #999999;
               float: left;
+              display: inline-block;
+              font-size: 12px;
+              color: #999;
               line-height: 24px;
+              padding-left: 10px;
             }
           }
           &__body {
@@ -160,10 +159,10 @@
       }
     }
     &__footer {
+      height: 90px;
       width: 100%;
       bottom: 0px;
       left: 0px;
-      height: 90px;
       padding: 0 40px;
       background-color: #ddd;
 
@@ -171,11 +170,11 @@
         @include clearfix();
         max-width: 100%;
         form {
-          margin: 20px 0 20px 0;
+          margin: 20px 0;
           textarea { 
             width: calc(100% - 116px);
             height: 50px;
-            padding: 0 10px 0 10px;
+            padding: 0 10px;
             font-size: 16px;
             line-height: 45px;
             border: none;
@@ -185,17 +184,17 @@
         &__body {
           @include clearfix();
           float: left;
-          height: 50px;
-          width: calc(100% - 120px);
-          margin-right: 10px;
-          background-color: white;
           position: relative;
           display: inline-block;
+          height: 50px;
+          width: calc(100% - 120px);
+          background-color: white;
+          margin-right: 10px;
         }
-          lavel {
+          label {
+            display: inline-block;
             color: #434A54;
             font-size: 16px;
-            display: inline-block;
             i {
               position: absolute;
               right: 166px;
@@ -203,15 +202,15 @@
             }
           }
         input {
-          background-color: #38AEF0;
           display: inline-block;
-          text-align: center;
-          line-height: 50px;
-          width: 100px;
-          color: white;
           position: absolute;
           right: 40px;
           bottom: 20px;
+          width: 100px;
+          background-color: $color;
+          text-align: center;
+          line-height: 50px;
+          color: white;
           border: none;
           font-size: 18px;
         }
