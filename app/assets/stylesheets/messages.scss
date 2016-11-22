@@ -43,7 +43,7 @@ $color: #38AEF0;
       &__actions {
         @include clearfix;
         float: right;
-        i {
+        a {
           display: inline-block;
           font-size: 20px;
           color: white;
