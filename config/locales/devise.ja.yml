@@ -10,7 +10,7 @@ ja:
 
   devise:
     failure:
-      unauthenticated: 'ログインしてください。'
+      unauthenticated: 'アカウント登録もしくはログインしてください。'
 #      unauthenticated: 'You need to sign in or sign up before continuing.'
       unconfirmed: '本登録を行ってください。'
 #      unconfirmed: 'You have to confirm your account before continuing.'
