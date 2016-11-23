@@ -8,7 +8,8 @@ Bundler.require(*Rails.groups)
 
 module ChatSpace
   class Application < Rails::Application
-     config.generators do |g|
+    config.i18n.default_locale = :ja 
+    config.generators do |g|
       g.test_framework false
       end
     # Settings in config/environments/* take precedence over those specified here.
@@ -16,3 +17,8 @@ module ChatSpace
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+
+
+
+

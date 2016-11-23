@@ -1,16 +1,16 @@
 $color: #38AEF0;
-.flash {
-  height: 29px;
-  width: 100%;
-  background-color: $color;
-  p {
-    color: white;
-    font-size: 15px;
-    text-align: center;
-    letter-spacing: 6px;
-    padding-top: 5px;
-  }
-}
+// .flash {
+//   height: 29px;
+//   width: 100%;
+//   background-color: $color;
+//   p {
+//     color: white;
+//     font-size: 15px;
+//     text-align: center;
+//     letter-spacing: 6px;
+//     padding-top: 5px;
+//   }
+// }
 .chat {
   @include clearfix();
   min-width: 980px;
