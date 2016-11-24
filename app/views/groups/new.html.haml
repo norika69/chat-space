@@ -1,0 +1,28 @@
+.layout-notification
+  .chat-group-form
+    %h1  新規チャットグループ
+    = form_for(@group, html: {class: "", id: "new-chat-group"}) do |f|
+      = render partial: 'common/error', locals: { error: @group.errors }
+
+      .chat-group-form__field
+        .chat-group-form__field--left
+          = f.label :グループ名, class: 'chat-group-form__label'
+        .chat-group-form__field--right
+          = f.text_field :group_name, placeholder: 'グループ名を入力してください', class: 'chat-group-form__input'
+      .chat-group-form__field
+        .chat-group-form__field--left
+          = f.label :追加したいユーザー名, class: 'chat-group-form__label'
+        .chat-group-form__field--right
+          = f.text_field :group_name, placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input'
+      .chat-group-form__field
+        .chat-group-form__field--left
+          = f.label :チャットメンバー, class: 'chat-group-form__label'
+        .chat-group-form__field--right
+          .chat-group-users
+            .chat-group-user
+              %p.chat-group-user__name
+                norika
+      .chat-group-form__field
+        .chat-group-form__field--right
+        .chat-group-form__field--right
+          = f.submit "Save", class: "chat-group-form__action-btn"
