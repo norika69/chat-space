@@ -5,8 +5,13 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @groups = Group.create(create_params)
-    redirect_to controller: :messages, action: :index
+    @group = Group.create(create_params)
+    
+    if @group.save
+       redirect_to root_path
+     else
+       render action: :new
+    end
   end
 
 
