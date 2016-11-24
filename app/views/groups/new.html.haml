@@ -6,14 +6,14 @@
 
       .chat-group-form__field
         .chat-group-form__field--left
-          = f.label :グループ名, class: 'chat-group-form__label'
+          = f.label :グループ名, for: 'group_name',class: 'chat-group-form__label'
         .chat-group-form__field--right
-          = f.text_field :group_name, placeholder: 'グループ名を入力してください', class: 'chat-group-form__input'
+          = f.text_field :group_name, placeholder: 'グループ名を入力してください', class: 'chat-group-form__input', id: 'group_name'
       .chat-group-form__field
         .chat-group-form__field--left
-          = f.label :追加したいユーザー名, class: 'chat-group-form__label'
+          = f.label :追加したいユーザー名, for: 'user_name', class: 'chat-group-form__label'
         .chat-group-form__field--right
-          = f.text_field :group_name, placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input'
+          = f.text_field :group_name, placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input', id: 'user_name'
       .chat-group-form__field
         .chat-group-form__field--left
           = f.label :チャットメンバー, class: 'chat-group-form__label'
