@@ -238,6 +238,7 @@ $textarea_height: 50px;
     letter-spacing: 2px;
     font-size: 24px;
     text-align: center;
+    font-family: "Hiragino Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica,Arial, sans-serif;
   }
 
   .chat-group-form__errors {
@@ -267,6 +268,7 @@ $textarea_height: 50px;
   }
 
   .chat-group-form__field {
+    @include clearfix();
     margin-top: 30px;
 
     .chat-group-form__field--left {
@@ -298,7 +300,9 @@ $textarea_height: 50px;
     }
   }
 
+
   .chat-group-user {
+    @include clearfix();
     padding: 0 15px;
     line-height: 50px;
     font-size: 14px;
@@ -306,6 +310,7 @@ $textarea_height: 50px;
 
     .chat-group-user__name {
       float: left;
+      margin: 0;
     }
 
     .chat-group-user__btn {
@@ -322,7 +327,7 @@ $textarea_height: 50px;
       }
     }
   }
-
+// }
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
