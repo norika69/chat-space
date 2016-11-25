@@ -1,11 +1,13 @@
 class GroupsController < ApplicationController
+before_action  :set_group, only: [:edit, :update]
 
   def new
     @group = Group.new
   end
 
   def create
-    @group = Group.create(create_params)
+    # @group = current_user.groups.build(create_params)
+    @group = Group.new(create_params)
     
     if @group.save
        redirect_to root_path
@@ -14,11 +16,20 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find(params[:id])
+  end
+
   def edit
 
   end
 
   def update
+    if @group.update(create_params)
+       redirect_to root_path
+     else
+       render action: :edit
+    end
 
   end
 
@@ -26,5 +37,10 @@ class GroupsController < ApplicationController
   def create_params
     params.require(:group).permit(:group_name)
   end
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
 end
 
