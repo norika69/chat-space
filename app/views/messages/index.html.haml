@@ -15,7 +15,7 @@
   .chat__main
     .chat__main__header
       %h2
-        あめあめー
+        = @group.group_name
       .chat__main__header__right
         = link_to 'Edit', edit_group_path(current_user), class: "editbutton"
       %p
