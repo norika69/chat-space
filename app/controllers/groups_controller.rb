@@ -10,7 +10,7 @@ before_action  :set_group, only: [:edit, :update]
     @group = Group.new(create_params)
     
     if @group.save
-       redirect_to root_path
+       redirect_to root_path, flash: {notice: "チャットグループが作成されました。"}
      else
        render action: :new
     end
@@ -26,7 +26,7 @@ before_action  :set_group, only: [:edit, :update]
 
   def update
     if @group.update(create_params)
-       redirect_to root_path
+       redirect_to root_path, flash: {notice: "チャットグループが更新がされました。"}
      else
        render action: :edit
     end
