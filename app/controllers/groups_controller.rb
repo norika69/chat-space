@@ -1,23 +1,26 @@
 class GroupsController < ApplicationController
-before_action  :set_group, only: [:edit, :update]
+before_action  :set_group, only: [:edit, :update,:show]
+
+  def index
+  end
 
   def new
     @group = Group.new
   end
 
   def create
-    # @group = current_user.groups.build(create_params)
-    @group = Group.new(create_params)
+
+    @group = current_user.groups.build(create_params)
     
     if @group.save
-      redirect_to root_path, notice: 'チャットグループが作成されました。'
+      redirect_to @group, notice: 'チャットグループが作成されました。'
      else
        render action: :new
     end
   end
 
   def show
-    @group = Group.find(params[:id])
+   @user = User.find(current_user)
   end
 
   def edit
@@ -26,11 +29,10 @@ before_action  :set_group, only: [:edit, :update]
 
   def update
     if @group.update(create_params)
-      redirect_to root_path, notice: 'チャットグループが更新がされました。'
+      redirect_to group_path, notice: 'チャットグループが更新がされました。'
      else
        render action: :edit
     end
-
   end
 
   private
@@ -43,4 +45,5 @@ before_action  :set_group, only: [:edit, :update]
   end
 
 end
+
 
