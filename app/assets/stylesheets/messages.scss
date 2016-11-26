@@ -57,14 +57,22 @@ $color: #38AEF0;
       position: relative;
       top: 100px;
       color: #FFF;
-      padding: 20px 20px;
-      &__name{
-        display: inline-block;
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-      &__message {
-        font-size: 11px;
+      &__section{
+        display:block;
+        padding: 20px;
+        color:white;
+        &:hover{
+          color: white;
+          background-color: #384a62 ;
+        }
+        &__name{
+          display: inline-block;
+          font-size: 15px;
+          margin-bottom: 5px;
+        }
+        &__message {
+          font-size: 11px;
+        }
       }
     }
   }
