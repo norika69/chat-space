@@ -39,14 +39,15 @@
 .chat-groups {
   margin: 0;
   padding: 0;
-  color: #fff;
+  color: white;
   list-style: none;
-
+  
   .chat-group__link {
     display: block;
     padding: 20px 20px;
-    color: #fff;
-
+    div{
+      color: #fff !important;
+    }
     &:hover {
       background-color: #384a62;
     }
@@ -56,9 +57,11 @@
     display: inline-block;
     font-size: 15px;
     margin-bottom: 5px;
+    color: white;
   }
 
   .chat-group__message {
+    color: white;
     font-size: 11px;
     overflow: hidden;
     text-overflow: ellipsis;
