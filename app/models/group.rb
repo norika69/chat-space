@@ -1,13 +1,10 @@
 class Group < ApplicationRecord
-  has_many :users
+  has_many :users, through: :user_groups
   has_many :messages
-
+  has_many :user_groups
   validates :group_name, presence: true
+  belongs_to :user
 
-  # def add_error_sample
-  #   if group_name.empty?
-  #     errors.add(:group_name, "に関係するエラーを追加")
-  #     errors[:group] << "モデル全体に関係するエラーを追加"
-  #   end
-  # end
+  accepts_nested_attributes_for :user_groups
+  
 end

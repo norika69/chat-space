@@ -1,23 +1,49 @@
 class GroupsController < ApplicationController
+before_action  :set_group, only: [:edit, :update,:show]
+
+  def index
+  end
 
   def new
     @group = Group.new
   end
 
   def create
-    @group = Group.create(create_params)
+
+    @group = current_user.groups.build(create_params)
     
     if @group.save
-       redirect_to root_path
+      redirect_to @group, notice: 'チャットグループが作成されました。'
      else
        render action: :new
     end
   end
 
+  def show
+   @user = User.find(current_user)
+  end
+
+  def edit
+
+  end
+
+  def update
+    if @group.update(create_params)
+      redirect_to group_path, notice: 'チャットグループが更新がされました。'
+     else
+       render action: :edit
+    end
+  end
 
   private
   def create_params
     params.require(:group).permit(:group_name)
   end
+
+  def set_group
+    @group = Group.find(params[:id])
+  end
+
 end
+
 

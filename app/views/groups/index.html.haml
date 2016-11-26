@@ -1,0 +1,11 @@
+.chat
+  .chat__left
+    .chat__left__user
+      %h5
+        =current_user.name
+      .chat__left__user__actions
+        = link_to '', new_group_path, class: "fa fa-edit icon-edit"
+        = link_to '', edit_user_registration_path(current_user), class: "fa fa-cog icon-cog"
+      =render 'chat_left_group', object: current_user.groups
+
+  .chat__main{:style => "background-color: #f9f9f9;"}
