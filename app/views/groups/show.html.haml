@@ -1,17 +1,12 @@
-
 .chat
   .chat__left
     .chat__left__user
       %h5
-        うさまる。
+        = @user.name
       .chat__left__user__actions
         = link_to '', new_group_path, class: "fa fa-edit icon-edit"
         = link_to '', edit_user_registration_path(current_user), class: "fa fa-cog icon-cog"
-    .chat__left__group
-      .chat__left__group__name
-        るるるー
-      .chat__left__group__message
-        わわわー
+    = render 'chat_left_group', object: current_user.groups
   .chat__main
     .chat__main__header
       %h2
@@ -19,7 +14,8 @@
       .chat__main__header__right
         = link_to 'Edit', edit_group_path(current_user), class: "editbutton"
       %p
-        ふれふれー
+        Member:
+        = @user.name
     .chat__main__body
       %ul.chat__main__body__messages
         %li.chat__main__body__messages__message
@@ -39,3 +35,4 @@
             %label.chat__main__footer__form__body__label
               %i.fa.fa-photo.icon-photo
           %input{ type: "submit", value: "Send"}/
+          = debug @group
