@@ -13,7 +13,8 @@
         .chat-group-form__field--left
           = f.label :追加したいユーザー名, for: 'user_name', class: 'chat-group-form__label'
         .chat-group-form__field--right
-          = f.text_field :group_name, placeholder: '追加したいユーザー名を入力してください', class: 'chat-group-form__input', id: 'user_name'
+          = collection_check_boxes(:group, :user_ids, User.all, :id, :name,checked: current_user.id) do |b|
+            =b.label { b.check_box + b.text }
       .chat-group-form__field
         .chat-group-form__field--left
           = f.label :チャットメンバー, class: 'chat-group-form__label'
