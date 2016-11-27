@@ -6,21 +6,21 @@ before_action  :set_group, only: [:edit, :update,:show]
 
   def new
     @group = Group.new
+    @group.user_groups.build
   end
 
   def create
-
-    @group = current_user.groups.build(create_params)
-    
+    @group = Group.new(create_params)
     if @group.save
       redirect_to @group, notice: 'チャットグループが作成されました。'
-     else
+    else
        render action: :new
     end
   end
 
   def show
-   @user = User.find(current_user)
+    @group = Group.find(params[:id])
+    @message = Message.new
   end
 
   def edit
@@ -37,7 +37,7 @@ before_action  :set_group, only: [:edit, :update,:show]
 
   private
   def create_params
-    params.require(:group).permit(:group_name)
+    params.require(:group).permit(:group_name ,{:user_ids =>[]})
   end
 
   def set_group
