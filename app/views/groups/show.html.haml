@@ -17,7 +17,7 @@
         = @group.users
     .chat__main__body
       %ul.chat__main__body__messages
-        -@messages.each do |message|
+        - @messages.each do |message|
           %li.chat__main__body__messages__message
             .chat__main__body__messages__message__header
               %p.chat__main__body__messages__message__header__name
