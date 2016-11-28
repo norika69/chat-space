@@ -19,7 +19,6 @@ before_action  :set_group, only: [:edit, :update,:show]
   end
 
   def show
-    @group = Group.find(params[:id])
     @message = Message.new
   end
 
