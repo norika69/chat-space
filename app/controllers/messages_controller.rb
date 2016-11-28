@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
+before_action :set_group, only: [:create]
+
   def create
-    group = Group.find(params[:id])
     @message = group.messages.build(message_params)
     @message.valid?
     if @message.save
@@ -19,16 +20,13 @@ class MessagesController < ApplicationController
 
   end
 
-  def destroy
-
-  end
 
 private
   def message_params
     params.require(:message).permit(:user_id, :body, :image)
   end
 
-  def set_message
+  def set_group
     @group = Group.find(params[:id])
   end
 end
