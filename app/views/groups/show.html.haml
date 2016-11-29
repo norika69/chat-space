@@ -6,26 +6,22 @@
       .chat__left__user__actions
         = link_to '', new_group_path, class: "fa fa-edit icon-edit"
         = link_to '', edit_user_registration_path(current_user), class: "fa fa-cog icon-cog"
-    = render 'chat_left_group',object: current_user.groups
+    = render partial: "groups/chat_left_group", locals: {group_name: current_user.groups}
   .chat__main
     .chat__main__header
       %h2
         = @group.group_name
       .chat__main__header__right
         = link_to 'Edit', edit_group_path(), class: "editbutton"
-      %p
-        = @group.users
+      %div.chat__main__header__right__member
+        %p.chat__main__header__right__member__label Member:
+        - @group.users.each do |user|
+          %p.chat__main__header__right__member__label__members
+            = user.name
+
     .chat__main__body
       %ul.chat__main__body__messages
-        - @messages.each do |message|
-          %li.chat__main__body__messages__message
-            .chat__main__body__messages__message__header
-              %p.chat__main__body__messages__message__header__name
-                = message.user.name
-              %p.chat__main__body__messages__message__header__date
-                = message.created_at.strftime("%Y/%m/%d %H:%M:%S")
-            %p.chat__main__body__messages__message__body
-              = message.body
+        = render partial: "groups/messages", locals: {messages: @messages}
 
     .chat__main__footer
       .chat__main__footer__form
@@ -37,3 +33,4 @@
               .chat__main__footer__form__body__label
               %i.fa.fa-photo.icon-photo
             = f.submit "Send", data: { disable_with: "Sending..."}
+
