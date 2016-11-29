@@ -26,9 +26,9 @@
     .chat__main__footer
       .chat__main__footer__form
         .chat__mail__footer__form__body
-          = form_for @message, :url => messages_path do |f|
+          = form_for @message, url: messages_path do |f|
             = f.text_area :body, placeholder: 'type a massage',rows: 1, id: "message-body"
-            = f.hidden_field :user_id, :value => current_user.id
+            = f.hidden_field :user_id, value: current_user.id
             %label
               .chat__main__footer__form__body__label
               %i.fa.fa-photo.icon-photo
