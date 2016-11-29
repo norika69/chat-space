@@ -3,12 +3,18 @@ class MessagesController < ApplicationController
 before_action :set_group, only: [:create]
 
   def create
-    @message = group.messages.build(message_params)
-    @message.valid?
-    if @message.save
-       redirect_to group_path(params[:id])
+     @group = Group.find(params[:id])
+    @send_message  =  @group.messages.build(message_params)
+       @send_message.valid?
+
+    if @send_message.save
+          redirect_to group_path(params[:id])
     else
-       redirect_to group_path(params[:id]),alert: @message.errors.full_messages[0]
+      @group = Group.find(params[:id])
+      @message = Message.new
+      @messages = @group.messages
+      flash.now[:alert] = @send_message.errors.full_messages[0]
+      render "groups/show"
     end
   end
 
