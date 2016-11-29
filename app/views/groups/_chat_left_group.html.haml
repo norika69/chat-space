@@ -1,5 +1,5 @@
 .chat__left__group
-  -object.each do |group| 
+  - group_name.each do |group| 
     = link_to(group, class: 'chat__left__group__section') do 
       .chat__left__group__section__name
         = group.group_name

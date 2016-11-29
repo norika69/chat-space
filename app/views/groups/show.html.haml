@@ -6,31 +6,31 @@
       .chat__left__user__actions
         = link_to '', new_group_path, class: "fa fa-edit icon-edit"
         = link_to '', edit_user_registration_path(current_user), class: "fa fa-cog icon-cog"
-    = render 'chat_left_group', object: current_user.groups
+    = render partial: "groups/chat_left_group", locals: {group_name: current_user.groups}
   .chat__main
     .chat__main__header
       %h2
         = @group.group_name
       .chat__main__header__right
-        = link_to 'Edit', edit_group_path(current_user), class: "editbutton"
-      %p
-        Member:
+        = link_to 'Edit', edit_group_path(), class: "editbutton"
+      %div.chat__main__header__right__member
+        %p.chat__main__header__right__member__label Member:
+        - @group.users.each do |user|
+          %p.chat__main__header__right__member__label__members
+            = user.name
+
     .chat__main__body
       %ul.chat__main__body__messages
-        %li.chat__main__body__messages__message
-          .chat__main__body__messages__message__header
-            %p.chat__main__body__messages__message__header__name
-              usausa
-            %p.chat__main__body__messages__message__header__date
-              2016/11/18
-          %p.chat__main__body__messages__message__body
-            text
+        = render partial: "groups/messages", locals: {messages: @messages}
 
     .chat__main__footer
       .chat__main__footer__form
         .chat__mail__footer__form__body
-          %form{ action: "#", method: "post"}
-            %textarea{ placeholder: "type a massage" , rows: "1", id: "message-body"}
-            %label.chat__main__footer__form__body__label
+          = form_for @message, url: messages_path do |f|
+            = f.text_area :body, placeholder: 'type a massage',rows: 1, id: "message-body"
+            = f.hidden_field :user_id, value: current_user.id
+            %label
+              .chat__main__footer__form__body__label
               %i.fa.fa-photo.icon-photo
-          %input{ type: "submit", value: "Send"}/
+            = f.submit "Send", data: { disable_with: "Sending..."}
+

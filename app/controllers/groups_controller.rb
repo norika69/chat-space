@@ -20,6 +20,7 @@ before_action  :set_group, only: [:edit, :update,:show]
 
   def show
     @message = Message.new
+    @messages = @group.messages
   end
 
   def edit
