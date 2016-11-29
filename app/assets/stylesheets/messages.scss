@@ -102,18 +102,13 @@ $color: #38AEF0;
         letter-spacing: 2px;
         margin: 20px 0 -1px 0;
       }
-      p {
-        display: block;
-        font-size: 12px;
-        color: #999;
-      }
 //editボタン
       &__right {
         display: inline-block;
         float: right;
         width: 70px;
         .editbutton {
-          display: block;
+          display: inline-block;
           height: 40px;
           border: 2px $color solid;
           background-color: white;
@@ -123,6 +118,19 @@ $color: #38AEF0;
           font-size: 15px;
           padding:0 20px;
           margin-top:28px;
+        }
+        &__member {
+          display: block;
+          font-size: 12px;
+          color: #999;
+          &__label {
+            display: inline-block;
+            &__members {
+              display: inline-block;
+              font-size: 12px;
+              color: #999;
+            }
+          }
         }
       }
     }
