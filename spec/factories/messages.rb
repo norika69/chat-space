@@ -1,10 +1,10 @@
+include ActionDispatch::TestProcess
+
 FactoryGirl.define do
 
   factory :message do
-    body                  "らんらんるー"
-    image                 "rururu-"
-    group_id              "1"
-    user_id               "5"
+    body              {Faker::Pokemon.name}
+    image             { fixture_file_upload Rails.root.join('spec', 'fixtures', 'dummy.jpg'), 'image/jpeg' }
   end
 
 end
