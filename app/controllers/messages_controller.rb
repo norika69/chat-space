@@ -17,13 +17,6 @@ before_action :set_group, only: [:create]
     end
   end
 
-  def edit
-
-  end
-
-  def update
-
-  end
 
 
 private
