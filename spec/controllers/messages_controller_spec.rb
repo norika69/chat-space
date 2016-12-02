@@ -20,10 +20,10 @@ describe MessagesController, type: :controller do
         }.to change(Message, :count).by(1)
       end
 
-      # it "redirects to groups#show" do
-      #   post :create, message: attributes_for(:message),id: group.id
-      #   expect(response).to redirect_to groups_path
-      # end
+      it "redirects to groups#show" do
+        post :create, message: attributes_for(:message),id: group.id
+        expect(response).to redirect_to groups_path
+      end
 
       it "re-renders the :show template" do
         post :create, message: attributes_for(:message, body:""),id: group.id
