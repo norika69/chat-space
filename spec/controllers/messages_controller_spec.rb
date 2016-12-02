@@ -15,17 +15,17 @@ describe MessagesController, type: :controller do
     context "with valid attributes" do
       it "saves the new message in the database" do
         expect {
-        post :create, message: attributes_for(:message),id: group.id
+          post :create, message: attributes_for(:message),id: group.id
         }.to change(Message, :count).by(1)
       end
 
       it "redirects to groups#show" do
-        post :create, message: attributes_for(:message),id: group.id
+          post :create, message: attributes_for(:message),id: group.id
         expect(response).to redirect_to groups_path
       end
 
       it "re-renders the :show template" do
-        post :create, message: attributes_for(:message, body:""),id: group.id
+          post :create, message: attributes_for(:message, body:""),id: group.id
         expect(response).to render_template :"groups/show"
       end
     end
