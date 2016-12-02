@@ -4,7 +4,6 @@ describe MessagesController, type: :controller do
   let(:user){ create(:user) }
   let(:group){ create(:group) }
   let(:message){ create(:message, group_id: group.id, user_id: user.id) }
-  let(:user_groups){ { user_id: user.id, group_id: group.id } }
 
   before do
     # ユーザー作成
