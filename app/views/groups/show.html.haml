@@ -14,23 +14,22 @@
       .chat__main__header__right
         = link_to 'Edit', edit_group_path(), class: "editbutton"
       %div.chat__main__header__right__member
-        %p.chat__main__header__right__member__label Member:
-        - @group.users.each do |user|
-          %p.chat__main__header__right__member__label__members
-            = user.name
+        %p.chat__main__header__right__member__label 
+          Member:
+          = render partial: "member", locals: { member: @group.users }
 
     .chat__main__body
-      %ul.chat__main__body__messages
-        = render partial: "groups/messages", locals: {messages: @messages}
+      %ul.chat__main__body__messages.js_message
+        = render @messages
 
     .chat__main__footer
       .chat__main__footer__form
         .chat__mail__footer__form__body
-          = form_for @message, url: messages_path do |f|
-            = f.text_area :body, placeholder: 'type a massage',rows: 1, id: "message-body"
+          = form_for @message, html: { class: 'form js-form' } do |f|
+            = f.text_area :body, placeholder: 'type a massage',rows: 1, id: "message-body",class: 'form__text-area js-form__text-area'
             = f.hidden_field :user_id, value: current_user.id
             %label
               .chat__main__footer__form__body__label
               %i.fa.fa-photo.icon-photo
-            = f.submit "Send", data: { disable_with: "Sending..."}
+            = f.submit "Send",id: 'submit'
 
