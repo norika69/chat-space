@@ -1,0 +1,8 @@
+%li.chat__main__body__messages__message
+.chat__main__body__messages__message__header
+  %p.chat__main__body__messages__message__header__name
+    = message.user.name
+  %p.chat__main__body__messages__message__header__date
+    = message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+%p.chat__main__body__messages__message__body
+  = message.body
