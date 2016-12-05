@@ -16,9 +16,7 @@
       %div.chat__main__header__right__member
         %p.chat__main__header__right__member__label 
           Member:
-        - @group.users.each do |user|
-          %p.chat__main__header__right__member__label__members
-            = user.name
+          = render partial: "member", locals: { member: @group.users }
 
     .chat__main__body
       %ul.chat__main__body__messages.js_message
