@@ -11,8 +11,7 @@ $(function() {
 
   $('.js-form').on('submit', function(e) {
     e.preventDefault();
-    var textArea = $('#message-body');
-    var message = textArea.val();
+    var message = $('#message-body').val();
     requestUrl = document.location.pathname;
     $.ajax({
       type: 'POST',
@@ -31,7 +30,7 @@ $(function() {
       var html = buildHTML(data);
       $('.chat__main__body__messages').append(html);
       $("#submit").prop('disabled', false);
-      textArea.val('');
+      $('#message-body').val('');
     })
     .fail(function() {
       alert('入力してください');
