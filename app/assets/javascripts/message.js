@@ -6,7 +6,6 @@ $(function() {
       +'<p class="chat__main__body__messages__message__body">'+message.body+'</p>';
 
     $('.js_message').append(html);
-    // return html;
   }
 
   $('.js-form').on('submit', function(e) {
