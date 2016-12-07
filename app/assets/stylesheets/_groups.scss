@@ -15,6 +15,7 @@
   padding: 20px;
   color: #fff;
   background-color: #253141;
+  
 
   h5 {
     float: left;
@@ -41,7 +42,8 @@
   padding: 0;
   color: white;
   list-style: none;
-  
+
+
   .chat-group__link {
     display: block;
     padding: 20px 20px;
@@ -285,6 +287,25 @@ $textarea_height: 50px;
     .chat-group-form__field--right {
       float: right;
       width: 70%;
+      .chat-group-form__search {
+        width: 100%;
+        line-height: 30px;
+        box-sizing: border-box;
+        position: relative;
+
+        button {
+          touch-action: manipulation;
+          background-color: #e4e7e8;
+          border: none;
+          white-space: nowrap;
+          padding: 6px 12px;
+          border-radius: 4px;
+          margin: 0 550px 0px;
+          position: absolute;
+          top: 11px;
+          left: 10px;
+        }
+      }
     }
 
     .chat-group-form__label {
@@ -300,6 +321,7 @@ $textarea_height: 50px;
       line-height: 30px;
       padding: 10px 15px;
       box-sizing: border-box;
+
     }
   }
 
@@ -330,7 +352,6 @@ $textarea_height: 50px;
       }
     }
   }
-// }
   .chat-group-form__action-btn {
     display: inline-block;
     padding: 12px 20px;
