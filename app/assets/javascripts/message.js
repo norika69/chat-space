@@ -27,13 +27,13 @@ $(function() {
 
     .done(function(data) {
       var html = buildHTML(data);
-      $('.chat__main__body__messages').append(html);
+      $('.js_message').append(html);
       $("#submit").prop('disabled', false);
       $('#message-body').val('');
     })
     .fail(function() {
       alert('入力してください');
-      textArea.val('');
+      $('#message-body').val('');
     });
   });
 });
