@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-devise_for :users
+  root 'groups#index'
+  devise_for :users
+  get 'users/search' => 'users#search'
    devise_scope :user do
     authenticated :user do
       root to: 'groups#index', as: :authenticated_root
@@ -8,7 +10,6 @@ devise_for :users
       root to: 'devise/sessions#new', as: :unauthenticated_root
     end
   end
-  root 'groups#index'
 
   resources :groups do
     member do
