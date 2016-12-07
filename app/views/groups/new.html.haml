@@ -14,10 +14,10 @@
           = f.label :チャットメンバー追加, for: 'user_name', class: 'chat-group-form__label'
         .chat-group-form__field--right
           .chat-group-form__search.clearfix
-            %input#user-search-field.chat-group-form__input{placeholder: "追加したいユーザー名を入力してください" }
+            %input#user-search-field.chat-group-form__input{placeholder: "追加したいユーザー名を入力してください", type:"text" }
 
 
-              %button#user-search-button.btn{ type: "button"} 検索
+              %span#member-search 
             #user-search-result
       .chat-group-form__field
         .chat-group-form__field--left
