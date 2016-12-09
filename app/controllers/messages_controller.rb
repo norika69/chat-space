@@ -13,7 +13,8 @@ before_action :set_group, only: [:create]
         render json: {
           body: @send_message.body,
           name: current_user.name,
-          time: @send_message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+          time: @send_message.created_at.strftime("%Y/%m/%d %H:%M:%S"),
+          image: @send_message.image
         }
       }
     end
