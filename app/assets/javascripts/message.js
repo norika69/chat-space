@@ -1,6 +1,6 @@
 $(function() {
   function buildHTML(message) {
-     if (message.image){
+    if (message.image){
     var imageUrl = message.image.image.url;
     }
 
@@ -31,10 +31,10 @@ $(function() {
       type: 'POST',
       url: requestUrl + '/messages.json',
       data: formData,
-          processData: false,
-          contentType: false,
-          dataType: 'json',
-          cache:false
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            cache:false
     })
 
     .done(function(data) {
