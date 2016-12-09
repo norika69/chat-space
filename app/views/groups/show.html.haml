@@ -29,7 +29,7 @@
             = f.text_area :body, placeholder: 'type a massage',rows: 1, id: "message-body",class: 'form__text-area js-form__text-area'
             = f.hidden_field :user_id, value: current_user.id
             %label
-              .chat__main__footer__form__body__label
+              .chat__main__footer__form__body__label{style:"cursor: pointer;"}
+                = f.file_field :image,class: 'icon-photo'
               %i.fa.fa-photo.icon-photo
             = f.submit "Send",id: 'submit'
-
