@@ -24,7 +24,6 @@ $(function() {
 
   $('.js-form').on('submit', function(e) {
     e.preventDefault();
-    // var message = $('#message-body').val();
     var form = $('.js-form').get()[0];
     var formData = new FormData( form );
     requestUrl = document.location.pathname;
