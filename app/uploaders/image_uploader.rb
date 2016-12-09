@@ -1,4 +1,3 @@
-# encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base  
 
@@ -7,9 +6,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
  # 画像の上限を700pxにする
   process :resize_to_limit => [700, 700]
-
-  # 保存形式をJPGにする
-  process :convert => 'jpg'
 
   # サムネイルを生成する設定
   version :thumb do
@@ -21,10 +17,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
- # 拡張子が同じでないとGIFをJPGとかにコンバートできないので、ファイル名を変更
-  def filename
-    super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
-  end
 
  
   # ストレージの種類
