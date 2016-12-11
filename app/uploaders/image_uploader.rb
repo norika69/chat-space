@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
  
   # ストレージの種類
- storage :file
+ storage :fog
 
  # 保存先
   def store_dir
