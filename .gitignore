@@ -13,3 +13,7 @@
 /tmp
 
 *.jpg
+
+.env
+
+config/secrets.yml
