@@ -1,30 +1,36 @@
 $(function() {
   function buildHTML(message) {
 
- if (message.image){
+  if (message.image){
     var imageUrl = message.image.image.url;
     }
 
   if (imageUrl != null) {
     var html =  '<li>'+
-                  '<div class="chat__main__body__messages__message__header">'+
-                    '<p class="chat__main__body__messages__message__header__name">'
-                      +message.name+
-                    '</p>'+
-                      '<p class="chat__main__body__messages__message__header__date">'
-                        +message.time+
-                      '</p>'+
-                      '</div>'+
-                      '<p class="chat__main__body__messages__message__body">'
-                        +message.body+
-                      '</p>'+
-                      '<br /><img src="' + imageUrl + '">'+
-                  '</li>';
+                '<div class="chat__main__body__messages__message__header">'+
+                '<p class="chat__main__body__messages__message__header__name">'+
+                message.name+
+                '</p>'+
+                '<p class="chat__main__body__messages__message__header__date">'+
+                message.time+
+                '</p>'+
+                '</div>'+
+                '<p class="chat__main__body__messages__message__body">'+
+                message.body+
+                '</p>'+
+                '<br /><img src="' + imageUrl + '">'+
+                '</li>';
   }else{
-    var html =  '<li>'+'<div class="chat__main__body__messages__message__header">'+
-      '<p class="chat__main__body__messages__message__header__name">'+message.name+'</p>'+
-      '<p class="chat__main__body__messages__message__header__date">'+message.time+'</p>'+'</div>'
-      +'<p class="chat__main__body__messages__message__body">'+message.body+'</p>';
+    var html =  '<li>'+
+                '<div class="chat__main__body__messages__message__header">'+
+                '<p class="chat__main__body__messages__message__header__name">'+
+                message.name+'</p>'+
+                '<p class="chat__main__body__messages__message__header__date">'+
+                message.time+'</p>'+
+                '</div>'+
+                '<p class="chat__main__body__messages__message__body">'+
+                message.body+
+                '</p>';
     }
      $('.js_message').append(html);
   }
@@ -60,7 +66,7 @@ $(function() {
 
   $('.js-form').on('submit', function(e) {
     e.preventDefault();
-     var form = $('.js-form').get()[0];
+    var form = $(this).get()[0];
     var formData = new FormData( form );
     requestUrl = document.location.pathname;
     $.ajax({
@@ -84,6 +90,5 @@ $(function() {
       alert('入力してください');
       $('#message-body').val('');
     });
-    return false;
   });
 });
