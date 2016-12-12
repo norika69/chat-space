@@ -18,7 +18,7 @@ $(function() {
                       '<p class="chat__main__body__messages__message__body">'
                         +message.body+
                       '</p>'+
-                      '<br /><img src="' + message.image.image.url + '">'+
+                      '<br /><img src="' + imageUrl + '">'+
                   '</li>';
   }else{
     var html =  '<li>'+'<div class="chat__main__body__messages__message__header">'+
