@@ -21,6 +21,22 @@ before_action  :set_group, only: [:edit, :update,:show]
   def show
     @message = Message.new
     @messages = @group.messages
+
+    respond_to do |format|
+      format.html
+        if @messages
+          format.json {
+            render json: {
+              body: @messages.last.body,
+              number: @messages.length,
+              name: @messages.last.user.name,
+              time: @messages.last.created_at.strftime("%Y/%m/%d %H:%M:%S"),
+              image: @messages.last.image
+          }}
+        else
+          format.json { render json: {} }
+        end
+   end
   end
 
   def edit
